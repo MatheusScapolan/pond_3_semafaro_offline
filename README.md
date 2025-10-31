@@ -7,7 +7,7 @@ Este repositório contém o guia completo para montar e programar um semáforo c
 - Verde: 4 segundos
 - Amarelo: 2 segundos
 
-Inclui documentação detalhada, cálculo de resistores, esquemas de ligação, código-fonte para Arduino (versão simples e não-bloqueante), checklist de validação, roteiro de vídeo e template de avaliação por pares.
+Inclui documentação detalhada, cálculo de resistores, esquemas de ligação, código-fonte para Arduino, vídeo e avaliação por pares.
 
 ## Sumário
 
@@ -25,7 +25,6 @@ Inclui documentação detalhada, cálculo de resistores, esquemas de ligação, 
 
 ## Objetivo e requisitos
 
-
 Desenvolver um semáforo funcional com três LEDs (vermelho, amarelo e verde), montado em protoboard e controlado por microcontrolador Arduino, repetindo continuamente o ciclo:
 1) Vermelho 6 s → 2) Verde 4 s → 3) Amarelo 2 s → reinicia.
 
@@ -39,8 +38,8 @@ Tabela de componentes recomendados:
 | LED 5 mm verde | 1 | Vf≈2.1–2.2 V, If 10–20 mA | Indicação de SIGA |
 | Resistores | 3 | 330 Ω, 1/4 W | Um por LED |
 | Protoboard | 1 | 400+ pontos | |
-| Jumpers macho-macho | 6+ | 10–20 cm | Cores distintas ajudam |
-| Arduino Uno (ou Nano) | 1 | 5 V | Qualquer Arduino 5 V funciona |
+| Jumpers macho-macho | 7+ | 10–20 cm | Cores distintas|
+| Arduino Uno (ou Nano) | 1 | 5 V | Qualquer Arduino 5 V |
 | Cabo USB | 1 | Compatível | Para alimentação e upload |
 
 Observação: 330 Ω limita a corrente a ~8–10 mA, preservando o LED e o pino do Arduino.
@@ -82,20 +81,17 @@ Dicas de montagem:
 
 
 
-Para fotos de referência, consulte `docs/guia_imagens.md`.
+Para fotos de referência, consulte `assets/`.
 
 ## Código e lógica de temporização
-O repositório fornece duas implementações:
+O repositório fornece uma implementação:
 
 
-1) Simples (com `delay`) — mais direta para iniciantes.
-2) Não-bloqueante (máquina de estados com `millis`) — permite evoluir o projeto (sensores, botões, etc.).
+1) Orientada a objetos (POO), com uso de ponteiros e máquina de estados com `millis` — pronta para extensões (sensores, botões, etc.).
 
 Caminhos dos códigos:
 
-
-- `arduino/semaforo_simple/semaforo_simple.ino`
-- `arduino/semaforo_state_machine/semaforo_state_machine.ino`
+- `arduino/semaforo_codigo/semaforo_codigo.ino`
 
 Tempos programados:
 
@@ -116,46 +112,20 @@ Opção A — Arduino IDE:
 4. Ferramentas → Porta: selecione a porta COM do seu Arduino.
 5. Clique em “Upload” e aguarde a mensagem de sucesso.
 
-Opção B — Arduino CLI (opcional):
-
-
-```bash
-arduino-cli compile --fqbn arduino:avr:uno arduino/semaforo_simple
-arduino-cli upload  --fqbn arduino:avr:uno -p COM3 arduino/semaforo_simple
-```
-
-
-Ajuste a porta serial (COMx) conforme seu sistema.
-
-## Validação dos tempos e testes
-
-
-- Utilize um cronômetro (celular) e meça a duração de cada fase.
-- Realize três medições por cor e calcule a média.
-- Tolerância aceitável: ±100 ms em cada fase para esta aplicação didática.
-- Confirme a ordem: Vermelho → Verde → Amarelo → Vermelho (loop contínuo).
-
-Checklist rápido:
-
-
-- [ ] LEDs ligam isoladamente (apenas uma cor por vez)
-- [ ] Tempos: 6 s / 4 s / 2 s
-- [ ] Fios organizados e polaridades corretas
 
 ## Vídeo de demonstração (entrega)
 
 
-Grave um vídeo curto demonstrando o funcionamento:
+Vídeo curto demonstrando o funcionamento:
 - Mostre a protoboard e as conexões (close-ups).
 - Mostre você (autor(a)) no vídeo, afirmando seu nome e turma.
 - Demonstre claramente a alternância das fases e os tempos.
 - Faça upload para uma plataforma (YouTube não listado, Google Drive, etc.).
 - Adicione o link aqui:
 
-Link do vídeo: <COLE AQUI O LINK DO VÍDEO>
+Link do vídeo: 
 
 ## Avaliação de pares
-
 
 Critérios (barema 0–2 por item):
 
@@ -181,4 +151,4 @@ Use o template em `peer-review/avaliacoes.md` para registrar os nomes completos 
 - Upload falha: feche monitores seriais; confirme a porta COM e o cabo USB funcional.
 
 ---
-Autor(a): <SEU NOME COMPLETO> — Departamento de Engenharia de Trânsito
+Autor(a): <Matheus Henrique Scapolan Silva> — Departamento de Engenharia de Trânsito
