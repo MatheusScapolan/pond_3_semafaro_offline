@@ -123,7 +123,7 @@ Vídeo curto demonstrando o funcionamento:
 - Faça upload para uma plataforma (YouTube não listado, Google Drive, etc.).
 - Adicione o link aqui:
 
-Link do vídeo: 
+Link do vídeo: https://youtube.com/shorts/dnjXNdfi2n0?si=ScWuQEZ0r2SXeVYV
 
 ## Avaliação de pares
 
